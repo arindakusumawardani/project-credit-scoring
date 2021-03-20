@@ -139,12 +139,14 @@ const SignUp = () => {
                                             <FontAwesomeIcon icon={faUserCircle}/>
                                         </span>
                                     </div>
-                                    <input id="fullname"
-                                           type="text"
-                                           name="fullname"
-                                           placeholder="Full Name"
-                                           onChange={(e) => handleFullNameChange(e)}
-                                           className="form-control bg-white border-left-0 border-md"/><br/>
+                                    <input
+                                        required
+                                        id="fullname"
+                                        type="text"
+                                        name="fullname"
+                                        placeholder="Full Name"
+                                        onChange={(e) => handleFullNameChange(e)}
+                                        className="form-control bg-white border-left-0 border-md"/><br/>
                                 </div>
                                 <div style={{
                                     marginLeft:"20px",
@@ -160,12 +162,14 @@ const SignUp = () => {
                                             <FontAwesomeIcon icon={faUser}/>
                                         </span>
                                     </div>
-                                    <input id="username"
-                                           type="text"
-                                           name="username"
-                                           placeholder="Username"
-                                           onChange={(e) => handleUsernameChange(e)}
-                                           className="form-control bg-white border-left-0 border-md"/>
+                                    <input
+                                        required
+                                        id="username"
+                                        type="text"
+                                        name="username"
+                                        placeholder="Username"
+                                        onChange={(e) => handleUsernameChange(e)}
+                                        className="form-control bg-white border-left-0 border-md"/>
                                 </div>
                                 <div style={{
                                     marginLeft:"20px",
@@ -182,12 +186,14 @@ const SignUp = () => {
                                             <FontAwesomeIcon icon={faEnvelope}/>
                                         </span>
                                     </div>
-                                    <input id="email"
-                                           type="email"
-                                           name="email"
-                                           placeholder="Email Address"
-                                           onChange={(e) => handleEmailChange(e)}
-                                           className="form-control bg-white border-left-0 border-md"/><br/>
+                                    <input
+                                        required
+                                        id="email"
+                                        type="email"
+                                        name="email"
+                                        placeholder="Email Address"
+                                        onChange={(e) => handleEmailChange(e)}
+                                        className="form-control bg-white border-left-0 border-md"/><br/>
                                 </div>
                                 <div style={{
                                     marginLeft:"20px",
@@ -203,12 +209,14 @@ const SignUp = () => {
                                             <FontAwesomeIcon icon={faKey}/>
                                         </span>
                                     </div>
-                                    <input id="password"
-                                           type="password"
-                                           name="password"
-                                           placeholder="Password"
-                                           onChange={(e) => handlePasswordChange(e)}
-                                           className="form-control bg-white border-left-0 border-md"/><br/>
+                                    <input
+                                        required
+                                        id="password"
+                                        type="password"
+                                        name="password"
+                                        placeholder="Password"
+                                        onChange={(e) => handlePasswordChange(e)}
+                                        className="form-control bg-white border-left-0 border-md"/><br/>
                                 </div>
                                 <div style={{
                                     marginLeft:"20px",
@@ -218,20 +226,20 @@ const SignUp = () => {
                                     {passwordError}
                                 </div>
 
-                                <div className="input-group col-lg-12 mb-4">
-                                    <div className="input-group-prepend">
-                                        <span className="input-group-text bg-white px-4 border-md border-right-0">
-                                            <FontAwesomeIcon icon={faServer}/>
-                                        </span>
-                                    </div>
-                                    <select id="job" name="jobtitle"
-                                            className="form-control custom-select bg-white border-left-0 border-md">
-                                        <option selected>---Choose the role---</option>
-                                        <option value="1">Supervisor</option>
-                                        <option value="2">Staff</option>
-                                        onChange={(e) => handleRoleChange(e)}
-                                    </select><br/>
-                                </div>
+                                {/*<div className="input-group col-lg-12 mb-4">*/}
+                                {/*    <div className="input-group-prepend">*/}
+                                {/*        <span className="input-group-text bg-white px-4 border-md border-right-0">*/}
+                                {/*            <FontAwesomeIcon icon={faServer}/>*/}
+                                {/*        </span>*/}
+                                {/*    </div>*/}
+                                {/*    <select id="job" name="jobtitle"*/}
+                                {/*            className="form-control custom-select bg-white border-left-0 border-md">*/}
+                                {/*        <option selected>---Choose the role---</option>*/}
+                                {/*        <option value="1">Supervisor</option>*/}
+                                {/*        <option value="2">Staff</option>*/}
+                                {/*        onChange={(e) => handleRoleChange(e)}*/}
+                                {/*    </select><br/>*/}
+                                {/*</div>*/}
                                 <div style={{
                                     marginLeft:"20px",
                                     marginTop:"-25px",
@@ -243,7 +251,9 @@ const SignUp = () => {
                                 <div className="input-group col-lg-12 mb-4">
                                     <FormGroup>
                                         <Label for="exampleFile">File</Label>
-                                        <Input type="file" name="file" id="exampleFile" />
+                                        <Input
+                                            required
+                                            type="file" name="file" id="exampleFile" />
                                         <FormText color="muted">
                                             max/min size 500kb.
                                         </FormText>
@@ -264,7 +274,13 @@ const SignUp = () => {
                                                   style={{color: "#ffff"}}>CREATE ACCOUNT</span>
                                     </Button>
                                 </div>
-
+                                <div>
+                                    <p className="text-muted font-weight-bold">
+                                        Already have account?
+                                        <a href="/" className="text-primary ml-2">Sign In</a>
+                                    </p>
+                                    <hr/>
+                                </div>
                             </div>
                         </form>
                     </div>

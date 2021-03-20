@@ -7,6 +7,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSave} from "@fortawesome/free-solid-svg-icons";
 import Containers from "../../../components/Containers/Container";
 import HeaderMaster from "../../../components/navbar/NavbarMaster";
+import SignIn from "../../login/SignIn";
 
 function CustomerList({
                           error,
@@ -72,7 +73,9 @@ function CustomerList({
                         </Containers>
                     </>
                     :
-                    <div> cannot access</div>
+                    <div>
+                        <SignIn/>
+                    </div>
             }
         </div>
 

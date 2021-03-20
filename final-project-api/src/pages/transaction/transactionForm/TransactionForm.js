@@ -97,7 +97,7 @@ const TransactionForm = ({savedTransaction, isLoading, error, saveTransactionAct
                                                    onChange={handleChange}
                                                    value={data?.income || ''}
                                                    placeholder="income"
-                                                   type="number"/>
+                                                   type="number"  min="0"/>
                                             <InputGroupText>.00</InputGroupText>
                                         </InputGroup>
                                     </Col>
@@ -112,7 +112,7 @@ const TransactionForm = ({savedTransaction, isLoading, error, saveTransactionAct
                                                    onChange={handleChange}
                                                    value={data?.outcome || ''}
                                                    placeholder="outcome"
-                                                   type="number"/>
+                                                   type="number"  min="0"/>
                                             <InputGroupText>.00</InputGroupText>
                                         </InputGroup>
                                     </Col>
@@ -126,7 +126,7 @@ const TransactionForm = ({savedTransaction, isLoading, error, saveTransactionAct
                                                    onChange={handleChange}
                                                    value={data?.loan || ''}
                                                    placeholder="loan"
-                                                   type="number"
+                                                   type="number"  min="0"
                                                    name="loan"/>
                                             <InputGroupText>.00</InputGroupText>
                                         </InputGroup>
@@ -137,7 +137,7 @@ const TransactionForm = ({savedTransaction, isLoading, error, saveTransactionAct
                                     <Col sm={10}>
                                         <Input required
                                                onChange={handleChange}
-                                               type="number"
+                                               type="number"  min="0"
                                                value={data?.tenor || ''}
                                                name="tenor"
                                                placeholder="tenor"/>
@@ -152,7 +152,7 @@ const TransactionForm = ({savedTransaction, isLoading, error, saveTransactionAct
                                                 onChange={handleChange}
                                                 name="interestRate"
                                                 value={data?.interestRate || ''}
-                                                placeholder="interest rate" min={0} max={100} type="number" step="1"/>
+                                                placeholder="interest rate" min={0} max={100} type="number"  min="0" step="1"/>
                                             <InputGroupText>%</InputGroupText>
                                         </InputGroup>
                                     </Col>

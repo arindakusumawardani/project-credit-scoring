@@ -108,8 +108,17 @@ const SignIn = ({loginData, isLoading, error, dispatchLoginAction}) => {
         <div className="container">
             <div className="row align-items-center">
                 <div className="col-md-5 pr-lg-5 mb-md-0">
-                    <img src={undraw_Access_account_re_8spm} alt=""
-                         className="img-fluid d-none d-md-block"/>
+                    <div>
+                        <img src={undraw_Access_account_re_8spm} alt=""
+                             className="img-fluid d-none d-md-block"/>
+                             <br/>
+                        <p className="text-muted font-weight-bold">
+                            Have not account yet?
+                            <a href="/register" className="text-primary ml-2">Sign Up</a>
+                        </p>
+                        <hr/>
+                    </div>
+
                 </div>
 
                 <div className="col-md-7 col-lg-6 ml-auto">
@@ -170,13 +179,15 @@ const SignIn = ({loginData, isLoading, error, dispatchLoginAction}) => {
                                               style={{color: "#ffff"}}>SIGN IN</span>
                                 </Button>
                             </div>
-
                             <div className="text-center w-100">
+                                <br/>
                                 <p className="text-muted font-weight-bold">
                                     Forgot Password?
                                     <a href="#" className="text-primary ml-2">Click here</a>
                                 </p>
+                                <hr/>
                             </div>
+
                         </div>
                     </form>
                 </div>

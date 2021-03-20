@@ -9,6 +9,7 @@ import {faArrowLeft, faSave} from "@fortawesome/free-solid-svg-icons";
 import Container from "../../../components/Containers/Container";
 import DropdownList from "../../../components/DropdownList/DropdownList";
 import HeaderMaster from "../../../components/navbar/NavbarMaster";
+import SignIn from "../../login/SignIn";
 
 
 const CustomerForm = ({error, isLoading, saveCustomer, saveCustomerAction, customer, findCustomerByIdAction}) => {
@@ -176,7 +177,7 @@ const CustomerForm = ({error, isLoading, saveCustomer, saveCustomerAction, custo
                                                             required
                                                             onChange={handleChange}
                                                             value={data?.idNumber || ''}
-                                                            type="number"
+                                                            type="number"  min="0"
                                                             name="idNumber"
                                                             // id="idNumber"
                                                             placeholder="input ID number"/>
@@ -232,7 +233,7 @@ const CustomerForm = ({error, isLoading, saveCustomer, saveCustomerAction, custo
                                                             <Input
                                                                 onChange={handleChange}
                                                                 value={data?.contractLength || ''}
-                                                                type="number"
+                                                                type="number"  min="0"
                                                                 name="contractLength"
                                                                 id="contractLength"
                                                                 placeholder="contract length"/>
@@ -285,7 +286,7 @@ const CustomerForm = ({error, isLoading, saveCustomer, saveCustomerAction, custo
                         </div>
                     </>
                     :
-                    <div> cannot access</div>
+                    <div><SignIn/></div>
             }
         </div>
     )
