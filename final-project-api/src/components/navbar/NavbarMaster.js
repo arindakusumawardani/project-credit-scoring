@@ -27,6 +27,13 @@ const HeaderMaster = () => {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
 
+    const handleOnclick = () => {
+        localStorage.removeItem('token')
+        localStorage.removeItem('roles')
+        localStorage.removeItem('username')
+    }
+
+
     return (
         <div>
             <Navbar className="navbar" light expand="sm" >
@@ -61,7 +68,7 @@ const HeaderMaster = () => {
                                 <FontAwesomeIcon icon={faCheckDouble} style={{color:"#FFffff"}}/>  Report</NavLink>
                         </NavItem>
                         <NavItem className="nav-item" >
-                            <NavLink href="/" style={{fontSize:"20px", color:"#FFffff"}}>
+                            <NavLink href="/" onClick={handleOnclick} style={{fontSize:"20px", color:"#FFffff"}}>
                                 <FontAwesomeIcon icon={faSignOutAlt} style={{color:"#FFffff"}}/>  Log out</NavLink>
                         </NavItem>
                     </Nav>

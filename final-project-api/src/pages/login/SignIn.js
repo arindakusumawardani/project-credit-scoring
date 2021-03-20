@@ -56,7 +56,6 @@ const SignIn = ({loginData, isLoading, error, dispatchLoginAction}) => {
             // sweetAlert("Login Success!", "", "success");
             // history.push('/master/home')
         }
-
         // jika login error
         if (error) {
             setValidation("*Username or Password invalid!")
