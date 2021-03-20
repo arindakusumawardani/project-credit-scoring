@@ -20,8 +20,8 @@ class HomeMaster extends Component {
                                 <Jumbotron className="jumbotron-fluid" style={{height: "30vh"}}>
                                     <Row style={{marginTop: "-5%"}}>
                                         <Col>
-                                            <h1 style={{color: "#e42256", fontSize: "5vw", marginLeft: "15%"}}>Hello,
-                                                Admin!</h1>
+                                            <h1 style={{color: "#e42256", fontSize: "5vw", marginLeft: "15%"}}>
+                                                Hello, {localStorage.getItem('username')}!</h1>
                                             <p style={{fontSize: "2vw", marginLeft: "15%"}}>What do you want to do?</p>
                                             <Button href="/register"
                                                     style={{background: "#e42256", marginLeft: "15%", marginTop: "5%"}}><FontAwesomeIcon

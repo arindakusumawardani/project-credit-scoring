@@ -40,6 +40,7 @@ const SignIn = ({loginData, isLoading, error, dispatchLoginAction}) => {
         if (loginData) {
             localStorage.setItem('token', loginData.token)
             localStorage.setItem('roles', loginData.roles)
+            localStorage.setItem('username', loginData.username)
             console.log("sukses login", loginData)
 
             //pilih role

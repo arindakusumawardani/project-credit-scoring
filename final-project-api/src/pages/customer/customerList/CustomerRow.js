@@ -14,9 +14,9 @@ const CustomerRow = ({data, onUpdate, number}) => {
             {/*<td>{data.address}</td>*/}
             <td>{data.employeeType}</td>
             <td>
-                <Button href={`/customer/detail/${data.id}`} style={{background:"#e42256"}}>
+                <Button onClick={data} href={`/customer/${data.id}/detail`} style={{background:"#e42256"}}>
                     <FontAwesomeIcon icon={faInfoCircle}/>
-                </Button>{' '}
+                    </Button>{' '}
                 <Button onClick={onUpdate} href={`/customer/${data.id}/edit`} style={{background:"#e42256"}}>
                     <FontAwesomeIcon icon={faPencilAlt}/>
                 </Button>{' '}

@@ -15,14 +15,20 @@ const CustomerForm = ({error, isLoading, saveCustomer, saveCustomerAction, custo
     const {id} = useParams()
     const [roles, setRoles] = useState(localStorage.getItem("roles"))
     const [redirect] = useState(false)
+    const [photo, setPhoto] = useState({
+        profilePhoto: {},
+        idPhoto: {}
+    })
     const [data, setData] = useState({
         name: "",
         email: "",
         idNumber: 0,
         address: "",
         employeeType: "",
-        contractLength: 0,
-        contractStart: ""
+        contractLength: "",
+        contractStart: "",
+        idPhoto: "",
+        profilePhoto: ""
     })
     const history = useHistory()
 
@@ -39,6 +45,65 @@ const CustomerForm = ({error, isLoading, saveCustomer, saveCustomerAction, custo
             history.push('/customer')
         }
     }, [saveCustomer, history])
+
+    const handlePhoto = async (e) => {
+        let name = e.target.name
+        let value = e.target.files[0]
+        setPhoto( {...photo, [name]: value})
+
+        const formData = new FormData()
+        formData.append("file", value)
+        formData.append("upload_preset", "ve2u0qv8")
+
+        const response = await fetch("https://api.cloudinary.com/v1_1/nielnaga/image/upload", {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            body: formData // body data type must match "Content-Type" header
+        }).then(res => res.json())
+            .then(res => {
+                console.log(res.url)
+                setData({
+                    ...data,
+                    [name] : res.url
+                })
+            })
+    }
+
+    const uploadIdPhoto = async () => {
+        const formData = new FormData()
+        formData.append("file", photo.idPhoto)
+        formData.append("upload_preset", "ve2u0qv8")
+
+        const response = await fetch("https://api.cloudinary.com/v1_1/nielnaga/image/upload", {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            body: formData // body data type must match "Content-Type" header
+        }).then(res => res.json())
+            .then(res => {
+                console.log(res.url)
+                setData({
+                    ...data,
+                    idPhoto : res.url
+                })
+            })
+    }
+
+
+    const uploadProfilePhoto = async () => {
+        const formData = new FormData()
+        formData.append("file", photo.profilePhoto)
+        formData.append("upload_preset", "ve2u0qv8")
+
+        const response = await fetch("https://api.cloudinary.com/v1_1/nielnaga/image/upload", {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            body: formData // body data type must match "Content-Type" header
+        }).then(res => res.json())
+            .then(res => {
+                console.log(res.url)
+                setData({
+                    ...data,
+                    profilePhoto : res.url
+                })
+            })
+    }
 
     const handleChange = (e) => {
         let name = e.target.name
@@ -175,6 +240,30 @@ const CustomerForm = ({error, isLoading, saveCustomer, saveCustomerAction, custo
                                                     </FormGroup>
                                                 </div>
                                                 }
+
+                                                <FormGroup row>
+                                                    <Label for="idPhoto" sm={2}>Personal ID Card Photo</Label>
+                                                    <Col sm={10}>
+                                                        <Input
+                                                            required
+                                                            type="file"
+                                                            name="idPhoto"
+                                                            onChange={handlePhoto}
+                                                            accept="image/jpeg, image/png" />
+                                                    </Col>
+                                                </FormGroup>
+                                                <FormGroup row>
+                                                    <Label for="profilePhoto" sm={2}>Profile Photo</Label>
+                                                    <Col sm={10}>
+                                                        <Input
+                                                            required
+                                                            type="file"
+                                                            name="profilePhoto"
+                                                            onChange={handlePhoto}
+                                                            accept="image/jpeg, image/png" />
+                                                    </Col>
+                                                </FormGroup>
+
                                                 <FormGroup check row>
                                                     <Col sm={{size: 10, offset: 2}}>
                                                         <Button style={{background:"#e42256"}}>
@@ -199,7 +288,6 @@ const CustomerForm = ({error, isLoading, saveCustomer, saveCustomerAction, custo
                     <div> cannot access</div>
             }
         </div>
-
     )
 }
 

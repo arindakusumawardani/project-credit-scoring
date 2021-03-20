@@ -8,6 +8,7 @@ import SignIn from "../pages/login/SignIn";
 import HomeMaster from "../pages/home/HomeMaster";
 import SignUp from "../pages/login/SignUp";
 import TransactionForm from "../pages/transaction/transactionForm";
+import CustomerDetail from "../pages/customer/CustomerDetail";
 
 const routes = [
     // {
@@ -70,6 +71,12 @@ const routes = [
         component: <TransactionForm />,
         exact: true
     },
+    {
+        path: '/customer/:id/detail',
+        component: <CustomerDetail />,
+        exact: true
+    }
+
 ];
 
 export default routes
