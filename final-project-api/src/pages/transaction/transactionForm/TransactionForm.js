@@ -176,7 +176,7 @@ const TransactionForm = ({savedTransaction, isLoading, error, saveTransactionAct
                                     <Col sm={{size: 10, offset: 2}}>
                                         <Button style={{background: "#e42256"}}>
                                             <FontAwesomeIcon icon={faSave}/>
-                                            {id > 0 ? "  Update" : "  Submit"}
+                                            Submit
                                         </Button> {' '}
                                         <Button href="/customer" style={{background: "#e42256"}}>
                                             <FontAwesomeIcon icon={faArrowLeft}/>

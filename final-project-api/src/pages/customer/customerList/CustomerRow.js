@@ -23,9 +23,6 @@ const CustomerRow = ({data, onUpdate, number}) => {
                 <Button href={`/transaction/form/${data.id}`} style={{background:"#e42256"}}>
                     <FontAwesomeIcon icon={faHandshake}/>
                 </Button>{' '}
-                <Button style={{background:"#e42256"}}>
-                    <FontAwesomeIcon icon={faTrash}/>
-                </Button>{' '}
             </td>
         </tr>
     )

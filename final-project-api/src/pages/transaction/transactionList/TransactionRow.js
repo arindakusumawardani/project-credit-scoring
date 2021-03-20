@@ -17,13 +17,7 @@ const TransactionRow = ({data, onUpdate, number}) => {
             <td>
                 <Button href={`/transaction/detail/${data.id}`} style={{background:"#e42256"}}>
                     <FontAwesomeIcon icon={faInfoCircle}/>
-                </Button>{' '}
-                <Button onClick={onUpdate} href={`/transaction/${data.id}/edit`} style={{background:"#e42256"}}>
-                    <FontAwesomeIcon icon={faPencilAlt}/>
-                </Button>{' '}
-                <Button style={{background:"#e42256"}}>
-                    <FontAwesomeIcon icon={faTrash}/>
-                </Button>{' '}
+                </Button>
             </td>
         </tr>
     )
