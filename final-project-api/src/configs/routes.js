@@ -6,31 +6,12 @@ import TransactionList from "../pages/transaction/transactionList";
 import CustomerForm from "../pages/customer/customerForm";
 import SignIn from "../pages/login/SignIn";
 import HomeMaster from "../pages/home/HomeMaster";
-import SignUp from "../pages/login/SignUp";
+import SignUp from "../pages/login/signUpForm/SignUp";
 import TransactionForm from "../pages/transaction/transactionForm";
 import CustomerDetail from "../pages/customer/CustomerDetail";
+import AccountList from "../pages/login/accountList/AccountList";
 
 const routes = [
-    // {
-    //     path: '/customer',
-    //     component: <CustomerList/>,
-    //     exact: true
-    // },
-    // {
-    //     path: '/transaction',
-    //     component: <TransactionList/>,
-    //     exact: true
-    // },
-    // {
-    //     path: '/customer/add',
-    //     component: <CustomerForm/>,
-    //     exact: true
-    // },
-    // {
-    //     path: '/customer/:id',
-    //     component: <CustomerForm />,
-    //     exact: true
-    // },
     {
         path: '/',
         component: <SignIn />,
@@ -74,6 +55,11 @@ const routes = [
     {
         path: '/customer/:id/detail',
         component: <CustomerDetail />,
+        exact: true
+    },
+    {
+        path: '/users',
+        component: <AccountList/>,
         exact: true
     }
 

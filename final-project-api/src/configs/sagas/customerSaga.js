@@ -20,7 +20,7 @@ import axios from "../api"
 function* findAllCustomerSaga() {
   let result = yield axios.get("/customer")
     .then(data => {
-      console.log("ini saga data",data)
+      // console.log("ini saga data",data)
       return ({
         type: FIND_ALL_CUSTOMER_SUCCESS,
         data: data

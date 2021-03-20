@@ -1,6 +1,5 @@
 import {
-    LOGIN_REQUEST,
-
+    LOGIN_REQUEST
 } from '../configs/constants/actions'
 
 export function loginRequestAction(model) {

@@ -17,6 +17,8 @@ import {
   loginReducer
 } from "./loginReducer";
 
+import {findAllAccountReducer} from "./signupReducer";
+
 const rootReducer = combineReducers({
   //CUSTOMER
   findAllCustomerReducer,
@@ -31,7 +33,10 @@ const rootReducer = combineReducers({
   updateTransactionReducer,
 
   //LOGIN
-  loginReducer
+  loginReducer,
+
+  //SIGNUP
+  findAllAccountReducer,
 })
 
 export default rootReducer

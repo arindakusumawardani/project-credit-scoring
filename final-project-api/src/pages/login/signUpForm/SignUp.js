@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import undraw_Updated_resume_re_q1or from "../../assets/images/undraw_Updated_resume_re_q1or.svg"
+import undraw_Updated_resume_re_q1or from "../../../assets/images/undraw_Updated_resume_re_q1or.svg"
 import {
     faEnvelope,
     faKey,
@@ -8,9 +8,9 @@ import {
     faUserCircle
 } from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import "./login.css"
+import "../login.css"
 import {FormText, Input, Label, FormGroup, Button} from "reactstrap";
-import Header from "../../components/navbar/NavbarAdmin";
+import Header from "../../../components/navbar/NavbarAdmin";
 import swal from 'sweetalert';
 
 const SignUp = () => {
@@ -41,8 +41,7 @@ const SignUp = () => {
                 role: role,
                 profilePicture: profilePicture
             }
-            //axios
-        }
+         }
     }
 
     const validate = () => {
@@ -226,20 +225,20 @@ const SignUp = () => {
                                     {passwordError}
                                 </div>
 
-                                {/*<div className="input-group col-lg-12 mb-4">*/}
-                                {/*    <div className="input-group-prepend">*/}
-                                {/*        <span className="input-group-text bg-white px-4 border-md border-right-0">*/}
-                                {/*            <FontAwesomeIcon icon={faServer}/>*/}
-                                {/*        </span>*/}
-                                {/*    </div>*/}
-                                {/*    <select id="job" name="jobtitle"*/}
-                                {/*            className="form-control custom-select bg-white border-left-0 border-md">*/}
-                                {/*        <option selected>---Choose the role---</option>*/}
-                                {/*        <option value="1">Supervisor</option>*/}
-                                {/*        <option value="2">Staff</option>*/}
-                                {/*        onChange={(e) => handleRoleChange(e)}*/}
-                                {/*    </select><br/>*/}
-                                {/*</div>*/}
+                                <div className="input-group col-lg-12 mb-4">
+                                    <div className="input-group-prepend">
+                                        <span className="input-group-text bg-white px-4 border-md border-right-0">
+                                            <FontAwesomeIcon icon={faServer}/>
+                                        </span>
+                                    </div>
+                                    <select id="job" name="jobtitle"
+                                            className="form-control custom-select bg-white border-left-0 border-md">
+                                        <option selected>---Choose the role---</option>
+                                        <option value="1">Supervisor</option>
+                                        <option value="2">Staff</option>
+                                        onChange={(e) => handleRoleChange(e)}
+                                    </select><br/>
+                                </div>
                                 <div style={{
                                     marginLeft:"20px",
                                     marginTop:"-25px",

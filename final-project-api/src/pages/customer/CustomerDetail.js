@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Link, useParams} from 'react-router-dom';
-import {Container, Modal} from "reactstrap";
+import Row, {Container, Modal} from "reactstrap";
 import {connect} from "react-redux";
 import {findCustomerByIdAction} from "../../actions/customerAction";
 import {Button} from "reactstrap";
@@ -37,15 +37,16 @@ function CustomerDetail({isLoading, customer, findCustomerByIdAction}) {
                 localStorage.getItem("roles") == "MASTER" ?
                     <>
                         <Container>
-                            <div>
-                                <Link to={`/customer/detail/${customer.id}`}>
-                                    <Button style={{marginTop: "10px"}} color="dark">
+
+                             <div>
+                                 <Link to={`/customer`}>
+                                     <Button  style={{marginTop: "10px"}} color="dark">
                                         <FontAwesomeIcon icon={faArrowLeft}/>
-                                        Back
-                                    </Button>
-                                    <br/> <br/>
-                                </Link>
-                            </div>
+                                         Back
+                                     </Button>
+                                     <br/> <br/>
+                                 </Link>
+                             </div>
                             <Table striped bordered hover size="sm">
                                 <thead>
                                 <tr style={{textAlign:"center"}}>
