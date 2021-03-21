@@ -1,8 +1,8 @@
 import React, {useEffect} from "react";
 import {Container, Table} from "reactstrap";
-import SignIn from "../SignIn";
+import swal from "sweetalert";
 import AccountRow from "./AccountRow";
-import {findAllAccountAction} from "../../../actions/signupAction";
+import {findAllAccountAction, removeByIdAccountAction} from "../../../actions/signupAction";
 import {connect} from "react-redux";
 import Containers from '../../../components/Containers/Container'
 
@@ -11,7 +11,9 @@ function AccountList({
                          error,
                          isLoading,
                          accounts,
-                         findAllAccountAction
+                         findAllAccountAction,
+                         dispatchRemoveById,
+                        isRemoved
                      }) {
 
     const onReload = () => {
@@ -20,14 +22,44 @@ function AccountList({
         console.log("onReload",findAllAccountAction)
     }
 
+    const onDelete = (id) => {
+        swal({
+            title: "Are you sure to delete this data?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then(willDelete => {
+                if (willDelete) {
+                    dispatchRemoveById(id);
+                    swal("Successful deleted", {
+                        icon: "success"
+                    });
+                } else {
+                    swal("Failed to delete")
+                }
+            });
+    };
+
     useEffect(onReload, [findAllAccountAction])
+
+    useEffect(() => {
+        onReload()
+    }, [findAllAccountAction])
+
+    useEffect(() => {
+        if(isRemoved) {
+            onReload()
+        }
+        console.log("isRemove", isRemoved)
+    }, [isRemoved])
 
 
     return (
         <div>
-            {
-                localStorage.getItem("roles") == "MASTER" ?
-                    <>
+            {/*{*/}
+            {/*    localStorage.getItem("roles") == "MASTER" ?*/}
+            {/*        <>*/}
                         <Containers error={error} >
 
                         </Containers>
@@ -59,7 +91,7 @@ function AccountList({
                                         accounts?.list?.map((e,i) => {
 
                                             return(
-                                                <AccountRow key={i} data={e} number={(accounts.page * accounts.size) + 1 + i}/>
+                                                <AccountRow onDeleted={() => onDelete(e.id)} key={i} data={e} number={(accounts.page * accounts.size) + 1 + i}/>
                                             )
                                         }) :
                                         <tr>
@@ -69,12 +101,12 @@ function AccountList({
                                 </tbody>
                             </Table>
                         </Container>
-                    </>
-                    :
-                    <div>
-                        <SignIn/>
-                    </div>
-            }
+            {/*        </>*/}
+            {/*        :*/}
+            {/*        <div>*/}
+            {/*            <SignIn/>*/}
+            {/*        </div>*/}
+            {/*}*/}
 
         </div>
     )
@@ -84,12 +116,14 @@ const mapStateToProps = (state) => {
     return {
         accounts: state.findAllAccountReducer.data || [],
         isLoading: state.findAllAccountReducer.isLoading,
-        error: state.findAllAccountReducer.error
+        error: state.findAllAccountReducer.error || state.removeAccountByIdReducer.error,
+        isRemoved: state.removeAccountByIdReducer
     }
 }
 
 const mapDispatchToProps = {
-    findAllAccountAction
+    findAllAccountAction,
+    dispatchRemoveById: removeByIdAccountAction
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AccountList)

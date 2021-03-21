@@ -61,6 +61,11 @@ const routes = [
         path: '/users',
         component: <AccountList/>,
         exact: true
+    },
+    {
+        path: '/users/:id',
+        component: <SignUp />,
+        exact: true
     }
 
 ];

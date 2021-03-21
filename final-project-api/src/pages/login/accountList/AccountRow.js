@@ -4,7 +4,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPencilAlt, faTrash} from "@fortawesome/free-solid-svg-icons";
 
 
-const AccountRow = ({data, number, onUpdate, onDelete}) => {
+const AccountRow = ({data, number, onUpdate, onDeleted}) => {
     return (
         <tr>
             <td>{number}</td>
@@ -25,10 +25,10 @@ const AccountRow = ({data, number, onUpdate, onDelete}) => {
             {/*<td>{data.profilePicture}</td>*/}
             <td>{data.roles[0].name}</td>
             <td>
-                <Button onClick={onUpdate} href={`/customer/${data.id}/edit`} style={{background:"#e42256"}}>
+                <Button onClick={onUpdate} href={`/users/${data.id}`} style={{background:"#e42256"}}>
                     <FontAwesomeIcon icon={faPencilAlt}/>
                 </Button>{' '}
-                <Button onClick={onDelete} style={{background:"#e42256"}}>
+                <Button onClick={onDeleted} style={{background:"#e42256"}}>
                     <FontAwesomeIcon icon={faTrash}/>
                 </Button>
             </td>

@@ -10,7 +10,15 @@ import {findCustomerByIdAction} from "../../../actions/customerAction";
 import HeaderMaster from "../../../components/navbar/NavbarMaster";
 import DropdownList from "../../../components/DropdownList/DropdownList";
 
-const TransactionForm = ({savedTransaction, isLoading, error, saveTransactionAction, customer, findCustomerByIdAction}) => {
+const TransactionForm = ({
+                             savedTransaction,
+                             isLoading,
+                             error,
+                             saveTransactionAction,
+                             customer,
+                             findCustomerByIdAction
+                         }) => {
+
     const {id} = useParams()
     const [redirect] = useState(false)
     const [data, setData] = useState({
@@ -97,7 +105,7 @@ const TransactionForm = ({savedTransaction, isLoading, error, saveTransactionAct
                                                    onChange={handleChange}
                                                    value={data?.income || ''}
                                                    placeholder="income"
-                                                   type="number"  min="0"/>
+                                                   type="number" min="0"/>
                                             <InputGroupText>.00</InputGroupText>
                                         </InputGroup>
                                     </Col>
@@ -112,7 +120,7 @@ const TransactionForm = ({savedTransaction, isLoading, error, saveTransactionAct
                                                    onChange={handleChange}
                                                    value={data?.outcome || ''}
                                                    placeholder="outcome"
-                                                   type="number"  min="0"/>
+                                                   type="number" min="0"/>
                                             <InputGroupText>.00</InputGroupText>
                                         </InputGroup>
                                     </Col>
@@ -126,7 +134,7 @@ const TransactionForm = ({savedTransaction, isLoading, error, saveTransactionAct
                                                    onChange={handleChange}
                                                    value={data?.loan || ''}
                                                    placeholder="loan"
-                                                   type="number"  min="0"
+                                                   type="number" min="0"
                                                    name="loan"/>
                                             <InputGroupText>.00</InputGroupText>
                                         </InputGroup>
@@ -137,7 +145,7 @@ const TransactionForm = ({savedTransaction, isLoading, error, saveTransactionAct
                                     <Col sm={10}>
                                         <Input required
                                                onChange={handleChange}
-                                               type="number"  min="0"
+                                               type="number" min="0"
                                                value={data?.tenor || ''}
                                                name="tenor"
                                                placeholder="tenor"/>
@@ -152,7 +160,8 @@ const TransactionForm = ({savedTransaction, isLoading, error, saveTransactionAct
                                                 onChange={handleChange}
                                                 name="interestRate"
                                                 value={data?.interestRate || ''}
-                                                placeholder="interest rate" min={0} max={100} type="number"  min="0" step="1"/>
+                                                placeholder="interest rate" min={0} max={100} type="number" min="0"
+                                                step="1"/>
                                             <InputGroupText>%</InputGroupText>
                                         </InputGroup>
                                     </Col>
@@ -172,7 +181,7 @@ const TransactionForm = ({savedTransaction, isLoading, error, saveTransactionAct
                                         />
                                     </Col>
                                 </FormGroup>
-                            <FormGroup check row>
+                                <FormGroup check row>
                                     <Col sm={{size: 10, offset: 2}}>
                                         <Button style={{background: "#e42256"}}>
                                             <FontAwesomeIcon icon={faSave}/>

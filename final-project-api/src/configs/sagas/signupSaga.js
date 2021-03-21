@@ -1,6 +1,14 @@
 import axios from "axios";
-import {FIND_ALL_ACCOUNT, FIND_ALL_ACCOUNT_FAILURE, FIND_ALL_ACCOUNT_SUCCESS} from "../constants/actions";
-import { put, takeLatest } from "redux-saga/effects"
+import {
+    FIND_ACCOUNT_BY_ID,
+    FIND_ALL_ACCOUNT,
+    FIND_ALL_ACCOUNT_FAILURE,
+    FIND_ALL_ACCOUNT_SUCCESS, REMOVE_ACCOUNT_BY_ID, REMOVE_ACCOUNT_BY_ID_FAILURE, REMOVE_ACCOUNT_BY_ID_SUCCESS,
+    SAVE_ACCOUNT,
+    SAVE_ACCOUNT_FAILURE,
+    SAVE_ACCOUNT_SUCCESS, UPDATE_ACCOUNT, UPDATE_CUSTOMER
+} from "../constants/actions";
+import {put, takeLatest} from "redux-saga/effects"
 
 function* findAllAccountSaga() {
     let result = yield axios.get("/users")
@@ -11,14 +19,103 @@ function* findAllAccountSaga() {
             })
         })
         .catch(err => {
-            return({
+            return ({
                 type: FIND_ALL_ACCOUNT_FAILURE,
                 error: err
             })
         })
-    yield put (result)
+    yield put(result)
+}
+
+
+function* saveAccountSaga(action) {
+    let model = action.model;
+    let method = 'POST', url = '/auth/signup';
+    if (model.id) {
+        method = "PATCH";
+        url += `/${model.id}`
+    }
+
+    let result = yield axios({
+        url: url,
+        method: method,
+        data: model
+    })
+        .then(data => {
+            return {
+                type: SAVE_ACCOUNT_SUCCESS,
+                data: data
+            }
+        })
+        .catch(e => {
+            return {
+                type: SAVE_ACCOUNT_FAILURE,
+                error: e
+            }
+        })
+    yield put(result)
+}
+
+function* findAccountByIdSaga(action) {
+    let result = yield axios.get(`/users/${action.id}`)
+        .then(data => {
+            return ({
+                type: FIND_ALL_ACCOUNT_SUCCESS,
+                data: data
+            })
+        })
+        .catch(e => {
+            return ({
+                type: FIND_ALL_ACCOUNT_FAILURE,
+                error: e
+            })
+        })
+    yield put(result)
+}
+
+function* updateAccountSaga(action) {
+    let result = false
+
+    yield put({
+        type: UPDATE_ACCOUNT,
+        data: result
+    })
+}
+
+function* removeAccountById(action) {
+    let result = yield axios.delete(`/users/${action.id}`)
+        .then(data => {
+            console.log("ini action", data)
+            return ({
+                type: REMOVE_ACCOUNT_BY_ID_SUCCESS,
+                data: data
+            })
+        })
+        .catch(err => {
+            return ({
+                type: REMOVE_ACCOUNT_BY_ID_FAILURE,
+                error: err
+            })
+        })
+    yield put(result)
 }
 
 export function* watchFindAllAccount() {
     yield takeLatest(FIND_ALL_ACCOUNT, findAllAccountSaga)
+}
+
+export function* watchSaveAccount() {
+    yield takeLatest(SAVE_ACCOUNT, saveAccountSaga)
+}
+
+export function* watchFindByIdAccount() {
+    yield takeLatest(FIND_ACCOUNT_BY_ID, findAccountByIdSaga)
+}
+
+export function* watchUpdateAccountById() {
+    yield takeLatest(UPDATE_ACCOUNT, updateAccountSaga)
+}
+
+export function* watchRemoveById() {
+    yield takeLatest(REMOVE_ACCOUNT_BY_ID, removeAccountById)
 }

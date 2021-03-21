@@ -12,7 +12,13 @@ import {
   watchUpdateTransactionById
 } from "./transactionSaga";
 import {watchLoginSaga} from "./loginSaga";
-import {watchFindAllAccount} from "./signupSaga";
+import {
+  watchFindAllAccount,
+  watchFindByIdAccount,
+  watchRemoveById,
+  watchSaveAccount,
+  watchUpdateAccountById
+} from "./signupSaga";
 
 
 
@@ -30,6 +36,11 @@ export default function* rootSaga() {
 
     watchLoginSaga(),
 
-    watchFindAllAccount()
+    watchFindAllAccount(),
+    watchSaveAccount(),
+
+    watchFindByIdAccount(),
+    watchUpdateAccountById(),
+    watchRemoveById(),
   ])
 }
