@@ -85,6 +85,7 @@ export const findTransactionByIdReducer = (state = {initialState, data: false}, 
 
             };
         case FIND_TRANSACTION_BY_ID_SUCCESS:
+            console.log("ini reducer", action.data)
             return {
                 data: action.data,
                 isLoading: false,

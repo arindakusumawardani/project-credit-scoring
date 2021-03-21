@@ -58,11 +58,13 @@ function* saveTransactionSaga(action) {
 }
 
 function* findTransactionByIdSaga(action) {
-    let result = yield axios.get(`/transaction ${action.id}`)
+    let result = yield axios.get(`/transaction/${action.id}`)
         .then(data => {
+            console.log("ini saga", data)
             return ({
                 type: FIND_TRANSACTION_BY_ID_SUCCESS,
                 data: data
+
             })
         })
         .catch(err => {

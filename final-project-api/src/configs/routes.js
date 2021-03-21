@@ -10,6 +10,7 @@ import SignUp from "../pages/login/signUpForm/SignUp";
 import TransactionForm from "../pages/transaction/transactionForm";
 import CustomerDetail from "../pages/customer/CustomerDetail";
 import AccountList from "../pages/login/accountList/AccountList";
+import TransactionDetail from "../pages/transaction/transactionDetail";
 
 const routes = [
     {
@@ -65,6 +66,11 @@ const routes = [
     {
         path: '/users/:id',
         component: <SignUp />,
+        exact: true
+    },
+    {
+        path: '/transaction/:id',
+        component: <TransactionDetail/>,
         exact: true
     }
 

@@ -15,7 +15,7 @@ const TransactionRow = ({data, onUpdate, number}) => {
             <td>{data.tenor}</td>
             <td>{data.interestRate}</td>
             <td>
-                <Button href={`/transaction/detail/${data.id}`} style={{background:"#e42256"}}>
+                <Button href={`/transaction/${data.id}`} style={{background:"#e42256"}}>
                     <FontAwesomeIcon icon={faInfoCircle}/>
                 </Button>
             </td>
