@@ -23,7 +23,7 @@ const AccountRow = ({data, number, onUpdate, onDeleted}) => {
                 }
             </td>
             {/*<td>{data.profilePicture}</td>*/}
-            <td>{data.roles[0].name}</td>
+            <td>{data.role}</td>
             <td>
                 <Button onClick={onUpdate} href={`/users/${data.id}`} style={{background:"#e42256"}}>
                     <FontAwesomeIcon icon={faPencilAlt}/>

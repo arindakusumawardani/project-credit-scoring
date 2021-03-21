@@ -53,14 +53,23 @@ function TransactionDetail({ findByIdDispatch ,transaction, isLoading}) {
                             <td>{transaction.outcome}</td>
                             <td>{transaction.loan}</td>
                             <td>{transaction.tenor}</td>
-                            <td>{transaction.nterestRate}</td>
+                            <td>{transaction.interestRate}</td>
                             <td>{transaction.mainLoan}</td>
-                            <td>{transaction.interest}</td>
+                            <td>
+                                {transaction.interest}</td>
                             <td>{transaction.installmentTotal}</td>
                             <td>{transaction.installment}</td>
                             <td>{transaction.creditRatio}</td>
-                            <td>{transaction.financeCriteria}</td>
-                            <td>{transaction.employeeCriteria}</td>
+                            <td>
+                                {transaction.financeCriteria ?
+                                    "True" : "False"
+                                }
+                            </td>
+                            <td>
+                                {transaction.employeeCriteria ?
+                                    "True" : "False"
+                                }
+                            </td>
                         </tr>:
                         <p>Loading...</p>}
 
